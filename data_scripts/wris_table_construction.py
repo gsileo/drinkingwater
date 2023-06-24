@@ -876,7 +876,7 @@ for i in range(len(projects_df_merged)):
         if isinstance(projects_df_merged.date_approved.iloc[i], date):
             #then find the relevant deflator values
             if ((projects_df_merged.date_approved.iloc[i] >= proj_deflator2012.observation_date.iloc[j]) & (projects_df_merged.date_approved.iloc[i] < proj_deflator2012.observation_date.iloc[j+1])):
-                projects_df_merged['total_project_cost_adj'].iloc[i] = (projects_df_merged['total_project_cost'].iloc[i]*proj_deflator2012.GDPDEF.iloc[j]/100)
+                projects_df_merged['total_project_cost_adj'].iloc[i] = (projects_df_merged['total_project_cost'].iloc[i]/proj_deflator2012.GDPDEF.iloc[j]*100)
                 break
         #if not date, just move on
         else:
